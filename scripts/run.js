@@ -1,6 +1,7 @@
+const { ethers } = require("ethers");
+
 const main = async () => {
     // Hardhat Runtime Env (hre) object injected by "npx hardhat run".
-    const [owner, requestor]  = await hre.ethers.getSigners();
     const waveContractFactory = await hre.ethers.getContractFactory('WavePortal');
 
     // Deploys our contract to the blockchain!
@@ -18,20 +19,19 @@ const main = async () => {
     *  (i.e., change and display our state variable)
     */
     let waveCount;
-    waveCount = await waveContract.getTotalWaves();
+    waveCount = await waveContract.getTotalWaves("Hi from the contract!");
+    console.log("Wave count: ", waveCount.toNumber());
 
     // Notify miners of the transaction we want to be mined.
     let waveTxn = await waveContract.wave();
+    await waveTxn.wait(); // Wait for the transaction to be mined.
 
-    // Wait for the transaction to be mined (e.g., waiting for a function call).
-    await waveTxn.wait();
+    const [_, requestor] = await ethers.getSigners();
+    waveTxn = await waveContract.connect(requestor).wave("The Requestor says 'Hi' too!")
+    await waveTxn.wait(); // Wait for the transaction to be mined.
 
-    waveCount = await waveContract.getTotalWaves();
-
-    waveTxn = await waveContract.connect(requestor).wave();
-    await waveTxn.wait();
-
-    waveCount = await waveContract.getTotalWaves();
+    let allWaves = await waveContract.getAllWaves();
+    console.log(allWaves);
 };
 
 const runMain = async () => {

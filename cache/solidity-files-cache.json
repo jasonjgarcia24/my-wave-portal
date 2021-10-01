@@ -36,9 +36,45 @@
       ]
     },
     "E:\\OneDrive\\Documents\\Education\\Solidity\\my-wave-portal\\contracts\\WavePortal.sol": {
-      "lastModificationDate": 1633079146668,
-      "contentHash": "3946e6568b36c32ea53f0b51504642aa",
+      "lastModificationDate": 1633104428985,
+      "contentHash": "f684aa87b93fdc58cc9ece4603942f18",
       "sourceName": "contracts/WavePortal.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "WavePortal"
+      ]
+    },
+    "E:\\OneDrive\\Documents\\Education\\Solidity\\my-wave-portal\\contracts\\WavePortal_old.sol": {
+      "lastModificationDate": 1633104411977,
+      "contentHash": "3946e6568b36c32ea53f0b51504642aa",
+      "sourceName": "contracts/WavePortal_old.sol",
       "solcConfig": {
         "version": "0.8.0",
         "settings": {
