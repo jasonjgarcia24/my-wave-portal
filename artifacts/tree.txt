@@ -1,0 +1,13 @@
+.
+├── build-info
+│   └── 8d876689900311cdf9adb049fdee9aa4.json
+├── contracts
+│   ├── Greeter.sol
+│   └── WavePortal.sol
+│       ├── WavePortal.dbg.json
+│       └── WavePortal.json
+├── hardhat
+│   └── console.sol
+│       ├── console.dbg.json
+│       └── console.json
+└── tree.txt
